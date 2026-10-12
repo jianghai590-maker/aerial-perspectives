@@ -13,37 +13,232 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
     >
     <style>
+      :root {
+        --brand: #2563eb;
+        --brand-deep: #1e3a8a;
+        --ink: #0f172a;
+        --muted: #64748b;
+        --card-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+      }
       body {
         padding-top: 72px;
-        background: #f3f5f8;
+        background: #eef2f7;
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
       }
+
+      /* ---------- Hero ---------- */
       .resume-hero {
-        background: radial-gradient(circle at top left, #0d6efd 0, #0d6efd 30%, #020617 100%);
+        position: relative;
+        overflow: hidden;
         color: #fff;
+        background:
+          radial-gradient(1100px 480px at 12% -10%, rgba(96, 165, 250, 0.55), transparent 60%),
+          radial-gradient(900px 520px at 95% 110%, rgba(129, 140, 248, 0.4), transparent 55%),
+          linear-gradient(120deg, #0b1e4b 0%, #12295e 45%, #0a1030 100%);
       }
+      .resume-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+        background-size: 26px 26px;
+        mask-image: linear-gradient(180deg, black 30%, transparent 90%);
+        pointer-events: none;
+      }
+      .hero-eyebrow {
+        letter-spacing: 0.18em;
+        font-size: 0.72rem;
+      }
+      .hero-name {
+        font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+        letter-spacing: -0.02em;
+      }
+      .contact-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.42rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        backdrop-filter: blur(6px);
+        font-size: 0.85rem;
+        color: #e8eefc;
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+      a.contact-pill:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      /* ---------- Card & sections ---------- */
       .resume-card {
         border: none;
-        border-radius: 1.25rem;
-        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+        border-radius: 1.5rem;
+        box-shadow: var(--card-shadow);
+        margin-top: -3.5rem;
+        position: relative;
+        z-index: 2;
       }
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-bottom: 1.1rem;
+      }
+      .section-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: #fff;
+        background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+        flex-shrink: 0;
+      }
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin: 0;
+      }
+      .section-rule {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, #e2e8f0, transparent);
+      }
+
+      /* ---------- Snapshot ---------- */
+      .snapshot {
+        background: linear-gradient(180deg, #f8fafc, #eef4ff);
+        border: 1px solid #e2e8f0;
+        border-radius: 1.1rem;
+      }
+      .snapshot li {
+        display: flex;
+        gap: 0.6rem;
+        align-items: flex-start;
+      }
+      .snapshot i {
+        margin-top: 0.15rem;
+      }
+
+      /* ---------- Timeline ---------- */
       .timeline {
-        border-left: 2px solid rgba(148, 163, 184, 0.8);
-        padding-left: 1.25rem;
+        position: relative;
+        padding-left: 1.6rem;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0.42rem;
+        top: 0.4rem;
+        bottom: 0.4rem;
+        width: 2px;
+        border-radius: 2px;
+        background: linear-gradient(180deg, var(--brand), #c7d7fe);
       }
       .timeline-item {
         position: relative;
-        margin-bottom: 1.5rem;
+        padding-bottom: 1.6rem;
+      }
+      .timeline-item:last-child {
+        padding-bottom: 0;
       }
       .timeline-item::before {
         content: "";
         position: absolute;
-        left: -1.05rem;
-        top: 0.35rem;
-        width: 10px;
-        height: 10px;
+        left: -1.6rem;
+        top: 0.3rem;
+        width: 0.95rem;
+        height: 0.95rem;
+        margin-left: 0.42rem;
+        transform: translateX(-50%);
         border-radius: 999px;
-        background: #0d6efd;
-        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
+        background: #fff;
+        border: 3px solid var(--brand);
+        box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.14);
+      }
+      .role-card {
+        background: #fff;
+        border: 1px solid #e8eef6;
+        border-radius: 1rem;
+        padding: 1.1rem 1.25rem;
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+      }
+      .role-card:hover {
+        box-shadow: 0 14px 30px rgba(37, 99, 235, 0.14);
+        transform: translateY(-2px);
+      }
+      .date-chip {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--brand-deep);
+        background: #e3ecff;
+        border-radius: 999px;
+        padding: 0.22rem 0.7rem;
+        white-space: nowrap;
+      }
+
+      /* ---------- Project cards ---------- */
+      .project-card {
+        border: 1px solid #e8eef6;
+        border-top: 3px solid var(--brand);
+        border-radius: 1rem;
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+        background: #fff;
+      }
+      .project-card:hover {
+        box-shadow: 0 16px 34px rgba(15, 23, 42, 0.14);
+        transform: translateY(-3px);
+      }
+      .project-tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--brand);
+      }
+
+      /* ---------- Skill pills ---------- */
+      .skill-group h3 {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .pill {
+        display: inline-block;
+        font-size: 0.82rem;
+        font-weight: 500;
+        padding: 0.38rem 0.85rem;
+        border-radius: 999px;
+        background: #eef4ff;
+        color: #1d4ed8;
+        border: 1px solid #d7e3fd;
+      }
+      .pill.alt {
+        background: #f1f5f9;
+        color: #334155;
+        border-color: #e2e8f0;
+      }
+
+      /* ---------- Drone strip ---------- */
+      .drone-strip {
+        background: linear-gradient(120deg, #0f172a, #1e293b);
+        border-radius: 1.1rem;
+        color: #e2e8f0;
+      }
+      .drone-strip li::marker {
+        color: #60a5fa;
       }
     </style>
   </head>
@@ -74,191 +269,205 @@
     </nav>
 
     <!-- hero -->
-    <section class="resume-hero py-5">
-      <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-8">
-            <span class="badge rounded-pill bg-light text-dark fw-semibold mb-3">
-              RESUME · BUSINESS ANALYSIS × UX RESEARCH
-            </span>
-            <h1 class="h2 fw-semibold mb-2">Hai Jiang</h1>
-            <p class="lead mb-1">
-              Turning user insights into business impact — through systems thinking, research, and design.
-            </p>
-            <p class="mb-0 text-light small">
-              Master of Information, Information Systems &amp; Design · University of Toronto
-            </p>
-          </div>
-          <div class="col-lg-4 text-lg-end">
-            <p class="mb-1 small text-light-50">
-              <i class="bi bi-geo-alt me-1"></i> Toronto, Ontario, Canada
-            </p>
-            <p class="mb-1 small text-light-50">
-              <i class="bi bi-envelope-open me-1"></i> hi.jiang@mail.utoronto.ca
-            </p>
-            <p class="mb-0 small text-light-50">
-              <i class="bi bi-linkedin me-1"></i> linkedin.com/in/hai-jiang590
-            </p>
-          </div>
+    <header class="resume-hero pt-5 pb-5">
+      <div class="container position-relative py-4" style="z-index: 1;">
+        <p class="hero-eyebrow text-uppercase fw-bold text-primary-emphasis mb-3">
+          <span class="badge rounded-pill text-bg-light">Resume · Business Analysis × UX Research</span>
+        </p>
+        <h1 class="hero-name fw-bold mb-2">Hai Jiang</h1>
+        <p class="lead mb-4" style="max-width: 36rem; color: #dbe6ff;">
+          Turning user insights into business impact — through systems thinking, research, and design.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="contact-pill"><i class="bi bi-geo-alt"></i> Toronto, Ontario, Canada</span>
+          <a class="contact-pill" href="mailto:hi.jiang@mail.utoronto.ca"><i class="bi bi-envelope-open"></i> hi.jiang@mail.utoronto.ca</a>
+          <a class="contact-pill" href="https://www.linkedin.com/in/hai-jiang590" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> linkedin.com/in/hai-jiang590</a>
         </div>
       </div>
-    </section>
+    </header>
 
-
-    <main class="py-5">
+    <main class="pb-5">
       <div class="container">
         <div class="card resume-card">
           <div class="card-body p-4 p-md-5">
-            <div class="row g-4 mb-4">
+
+            <!-- Education + Snapshot -->
+            <div class="row g-4 mb-5">
               <div class="col-lg-7">
-                <section class="mb-4">
-                  <h2 class="h4 mb-3">Education</h2>
-                  <div class="mb-3">
-                    <p class="mb-1 fw-semibold">
-                      University of Toronto — Master of Information, Information Systems &amp; Design
-                    </p>
-                    <p class="mb-1 small text-muted">Sep 2026 – Present</p>
-                    <p class="mb-0 small text-muted">
-                      Relevant coursework: Systems Analysis and Process Innovation; Programming for Data Science; Statistics for Data Science; Computational Thinking; Knowledge Management.
-                    </p>
-                  </div>
-                  <div>
-                    <p class="mb-1 fw-semibold">
-                      University of Toronto Mississauga — B.A., Digital Enterprise Management
-                    </p>
-                    <p class="mb-0 small text-muted">
-                      Sep 2023 – Jun 2026 · CGPA 3.74/4.00 · Dean's List 2024, 2025, 2026
-                    </p>
-                  </div>
-                </section>
-
-                <section class="mb-4">
-                  <h2 class="h4 mb-2">Creative Focus — Drone Photography</h2>
-                  <ul class="mb-0">
-                    <li>4+ years of aerial photography experience across urban nightscapes, coastlines, mountains and glaciers.</li>
-                    <li>Comfortable operating DJI drones and planning safe flight paths in diverse environments.</li>
-                    <li>Strong understanding of exposure (aperture, shutter speed, ISO) and low-light shooting.</li>
-                    <li>Experienced with hyperlapse, top-down compositions and long-exposure motion.</li>
-                  </ul>
-                </section>
+                <div class="section-head">
+                  <span class="section-icon"><i class="bi bi-mortarboard"></i></span>
+                  <h2 class="section-title">Education</h2>
+                  <span class="section-rule"></span>
+                </div>
+                <div class="mb-3">
+                  <p class="mb-1 fw-semibold">
+                    University of Toronto — Master of Information, Information Systems &amp; Design
+                  </p>
+                  <p class="mb-1"><span class="date-chip">Sep 2026 – Present</span></p>
+                  <p class="mb-0 small text-muted">
+                    Systems Analysis and Process Innovation · Programming for Data Science · Statistics for Data Science · Computational Thinking · Knowledge Management
+                  </p>
+                </div>
+                <div>
+                  <p class="mb-1 fw-semibold">
+                    University of Toronto Mississauga — B.A., Digital Enterprise Management
+                  </p>
+                  <p class="mb-0 small text-muted">
+                    Sep 2023 – Jun 2026 · CGPA 3.74/4.00 · Dean's List 2024, 2025, 2026
+                  </p>
+                </div>
               </div>
-
               <div class="col-lg-5">
-                <section class="mb-4">
-                  <h2 class="h5 mb-2">Snapshot</h2>
-                  <ul class="list-unstyled small mb-0">
-                    <li class="mb-1">
-                      <i class="bi bi-briefcase me-2 text-primary"></i>
-                      <strong>Positioning:</strong> Business Analysis × UX Research
-                    </li>
-                    <li class="mb-1">
-                      <i class="bi bi-camera-video me-2 text-primary"></i>
-                      <strong>Drone platforms:</strong> DJI Mavic series, DJI FPV
-                    </li>
-                    <li class="mb-1">
-                      <i class="bi bi-tools me-2 text-primary"></i>
-                      <strong>Tools:</strong> Figma, Excel, Canva, Photoshop, CapCut
-                    </li>
-                    <li>
-                      <i class="bi bi-translate me-2 text-primary"></i>
-                      <strong>Languages:</strong> Mandarin (native), English (fluent)
-                    </li>
+                <div class="snapshot p-4 h-100">
+                  <div class="section-head mb-3">
+                    <span class="section-icon" style="width:2rem;height:2rem;font-size:0.95rem;"><i class="bi bi-person-badge"></i></span>
+                    <h2 class="section-title" style="font-size:1.05rem;">Snapshot</h2>
+                  </div>
+                  <ul class="list-unstyled small mb-0 d-grid gap-2">
+                    <li><i class="bi bi-briefcase text-primary"></i><span><strong>Positioning:</strong> Business Analysis × UX Research</span></li>
+                    <li><i class="bi bi-camera-video text-primary"></i><span><strong>Drone platforms:</strong> DJI Mavic series, DJI FPV</span></li>
+                    <li><i class="bi bi-tools text-primary"></i><span><strong>Tools:</strong> Figma, Excel, Canva, Photoshop, CapCut</span></li>
+                    <li><i class="bi bi-translate text-primary"></i><span><strong>Languages:</strong> Mandarin (native), English (fluent)</span></li>
                   </ul>
-                </section>
+                </div>
               </div>
             </div>
 
-            <section class="mb-4">
-              <h2 class="h4 mb-3">Professional Experience</h2>
+            <!-- Experience -->
+            <div class="mb-5">
+              <div class="section-head">
+                <span class="section-icon"><i class="bi bi-briefcase"></i></span>
+                <h2 class="section-title">Professional Experience</h2>
+                <span class="section-rule"></span>
+              </div>
               <div class="timeline">
                 <div class="timeline-item">
-                  <h3 class="h5 mb-1">Content Creation &amp; Communications Intern — Institute for Management &amp; Innovation (IMI)</h3>
-                  <p class="small text-muted mb-1">Jan 2026 – May 2026 · University of Toronto Mississauga, ON</p>
-                  <ul class="small mb-0">
-                    <li>Supported MBiotech program communications and alumni engagement through audience-focused storytelling.</li>
-                    <li>Planned and produced interview-based video and written content for internal and public-facing channels.</li>
-                    <li>Coordinated with faculty, staff, and alumni to schedule interviews and ensure accuracy across deliverables.</li>
-                  </ul>
+                  <div class="role-card">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-1">
+                      <h3 class="h6 fw-bold mb-0">Content Creation &amp; Communications Intern — IMI</h3>
+                      <span class="date-chip">Jan 2026 – May 2026</span>
+                    </div>
+                    <p class="small text-muted mb-2">Institute for Management &amp; Innovation · UTM</p>
+                    <ul class="small mb-0 text-secondary">
+                      <li>Supported MBiotech program communications and alumni engagement through audience-focused storytelling.</li>
+                      <li>Planned and produced interview-based video and written content for internal and public-facing channels.</li>
+                    </ul>
+                  </div>
                 </div>
                 <div class="timeline-item">
-                  <h3 class="h5 mb-1">Marketing Intern — ACEs Teashop</h3>
-                  <p class="small text-muted mb-1">Oct 2024 – May 2025 · Toronto, ON</p>
-                  <ul class="small mb-0">
-                    <li>Supported integrated digital and in-store campaigns, coordinating timelines, content, and execution.</li>
-                    <li>Developed campaign copy and creative assets; contributed to post-campaign reviews for actionable improvements.</li>
-                  </ul>
+                  <div class="role-card">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-1">
+                      <h3 class="h6 fw-bold mb-0">Marketing Intern — ACEs Teashop</h3>
+                      <span class="date-chip">Oct 2024 – May 2025</span>
+                    </div>
+                    <p class="small text-muted mb-2">Toronto, ON</p>
+                    <ul class="small mb-0 text-secondary">
+                      <li>Supported integrated digital and in-store campaigns across timelines, content, and execution.</li>
+                      <li>Developed campaign copy and creative assets; contributed to post-campaign reviews.</li>
+                    </ul>
+                  </div>
                 </div>
                 <div class="timeline-item">
-                  <h3 class="h5 mb-1">Adult Education Intern — ACES Educational</h3>
-                  <p class="small text-muted mb-1">Dec 2023 – Aug 2024 · Mississauga, ON</p>
-                  <ul class="small mb-0">
-                    <li>Supported delivery and administration of adult-education programs, including scheduling and learner coordination.</li>
-                    <li>Contributed to new-course development through environmental scanning, lesson planning, and learning resources.</li>
-                  </ul>
+                  <div class="role-card">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-1">
+                      <h3 class="h6 fw-bold mb-0">Adult Education Intern — ACES Educational</h3>
+                      <span class="date-chip">Dec 2023 – Aug 2024</span>
+                    </div>
+                    <p class="small text-muted mb-2">Mississauga, ON</p>
+                    <ul class="small mb-0 text-secondary">
+                      <li>Supported delivery and administration of adult-education programs and learner coordination.</li>
+                      <li>Contributed to new-course development through environmental scanning and lesson planning.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </section>
+            </div>
 
-            <section class="mb-4">
-              <h2 class="h4 mb-3">Selected Academic Projects</h2>
+            <!-- Projects -->
+            <div class="mb-5">
+              <div class="section-head">
+                <span class="section-icon"><i class="bi bi-kanban"></i></span>
+                <h2 class="section-title">Selected Academic Projects</h2>
+                <span class="section-rule"></span>
+              </div>
               <div class="row g-3">
                 <div class="col-md-4">
-                  <div class="border rounded-3 p-3 h-100">
-                    <h3 class="h6 mb-1">Makerspace 2.0</h3>
-                    <p class="small text-muted mb-2">Project Management / ISD</p>
-                    <p class="small mb-0">Led discovery and requirements synthesis: stakeholder maps, risk register, user journeys, backlog and acceptance criteria.</p>
+                  <div class="project-card p-4 h-100">
+                    <p class="project-tag mb-2">Project Management / ISD</p>
+                    <h3 class="h6 fw-bold mb-2">Makerspace 2.0</h3>
+                    <p class="small text-muted mb-0">Led discovery and requirements synthesis: stakeholder maps, risk register, user journeys, backlog and acceptance criteria.</p>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="border rounded-3 p-3 h-100">
-                    <h3 class="h6 mb-1">SSENSE IA Redesign</h3>
-                    <p class="small text-muted mb-2">HCI / Information Architecture</p>
-                    <p class="small mb-0">Tree testing, card sorting, and annotated Figma prototypes focused on findability and task efficiency.</p>
+                  <div class="project-card p-4 h-100">
+                    <p class="project-tag mb-2">HCI / Information Architecture</p>
+                    <h3 class="h6 fw-bold mb-2">SSENSE IA Redesign</h3>
+                    <p class="small text-muted mb-0">Tree testing, card sorting, and annotated Figma prototypes focused on findability and task efficiency.</p>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="border rounded-3 p-3 h-100">
-                    <h3 class="h6 mb-1">CPPA vs. GDPR</h3>
-                    <p class="small text-muted mb-2">Privacy &amp; Data Protection</p>
-                    <p class="small mb-0">Compared consent mechanisms and built an evaluation checklist linking privacy requirements to interface design.</p>
+                  <div class="project-card p-4 h-100">
+                    <p class="project-tag mb-2">Privacy &amp; Data Protection</p>
+                    <h3 class="h6 fw-bold mb-2">CPPA vs. GDPR</h3>
+                    <p class="small text-muted mb-0">Compared consent mechanisms and built an evaluation checklist linking privacy requirements to interface design.</p>
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
 
-            <section>
-              <h2 class="h4 mb-3">Skills</h2>
+            <!-- Skills -->
+            <div class="mb-5">
+              <div class="section-head">
+                <span class="section-icon"><i class="bi bi-stars"></i></span>
+                <h2 class="section-title">Skills</h2>
+                <span class="section-rule"></span>
+              </div>
               <div class="row g-4">
+                <div class="col-md-6 skill-group">
+                  <h3 class="mb-2">Business &amp; Systems Analysis</h3>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span class="pill">Requirements synthesis</span>
+                    <span class="pill">Stakeholder mapping</span>
+                    <span class="pill">Process analysis</span>
+                    <span class="pill">User journeys</span>
+                    <span class="pill">Acceptance criteria</span>
+                  </div>
+                </div>
+                <div class="col-md-6 skill-group">
+                  <h3 class="mb-2">Research &amp; Evaluation</h3>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span class="pill alt">Interviews</span>
+                    <span class="pill alt">Survey design</span>
+                    <span class="pill alt">Usability testing</span>
+                    <span class="pill alt">Tree testing</span>
+                    <span class="pill alt">Card sorting</span>
+                    <span class="pill alt">Thematic coding</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Drone strip -->
+            <div class="drone-strip p-4 p-md-5">
+              <div class="section-head mb-3">
+                <span class="section-icon"><i class="bi bi-drone"></i></span>
+                <h2 class="section-title text-white">Creative Focus — Drone Photography</h2>
+              </div>
+              <div class="row g-3 small">
                 <div class="col-md-6">
-                  <h3 class="h6 mb-2">Business &amp; Systems Analysis</h3>
-                  <ul class="small mb-0">
-                    <li>Requirements synthesis, stakeholder mapping, process analysis</li>
-                    <li>User journeys, risk registers, backlog items, acceptance criteria</li>
+                  <ul class="mb-0">
+                    <li>4+ years of aerial photography across urban nightscapes, coastlines, mountains and glaciers.</li>
+                    <li>Comfortable operating DJI drones and planning safe flight paths in diverse environments.</li>
                   </ul>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="h6 mb-2">Research &amp; Evaluation</h3>
-                  <ul class="small mb-0">
-                    <li>Semi-structured interviews, survey design &amp; analysis</li>
-                    <li>Usability testing, think-aloud, tree testing, card sorting, thematic coding</li>
+                  <ul class="mb-0">
+                    <li>Strong understanding of exposure (aperture, shutter speed, ISO) and low-light shooting.</li>
+                    <li>Experienced with hyperlapse, top-down compositions and long-exposure motion.</li>
                   </ul>
                 </div>
               </div>
-              <div class="d-flex flex-wrap gap-2 mt-3">
-                <span class="badge bg-primary-subtle text-primary border border-primary-subtle">
-                  Business Analysis
-                </span>
-                <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle">
-                  UX Research
-                </span>
-                <span class="badge bg-success-subtle text-success border border-success-subtle">
-                  Information Architecture
-                </span>
-                <span class="badge bg-info-subtle text-info border border-info-subtle">
-                  Drone Photography
-                </span>
-              </div>
-            </section>
+            </div>
 
           </div>
         </div>
