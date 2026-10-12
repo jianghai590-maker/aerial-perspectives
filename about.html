@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Aerial Perspectives by Hai Jiang — About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body { padding-top: 72px; }
+      .about-hero { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 100%); }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Aerial Perspectives</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="portfolio.html" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="galleryDropdown">
+                <li><a class="dropdown-item" href="portfolio.html#urban">Urban Nightscapes</a></li>
+                <li><a class="dropdown-item" href="portfolio.html#coast">Coastlines</a></li>
+                <li><a class="dropdown-item" href="portfolio.html#mountains">Mountains &amp; Glaciers</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="flight-log.html">Flight Log</a></li>
+            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+            <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="about-hero text-white py-5">
+      <div class="container py-4">
+        <h1 class="display-5 fw-bold">About This Project</h1>
+        <p class="lead mb-0">How <em>Aerial Perspectives</em> was designed and built — from information architecture to responsive code.</p>
+      </div>
+    </header>
+
+    <main class="py-5">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-8">
+
+            <section class="mb-5">
+              <h2 class="h4 mb-3">🎯 Project Goals</h2>
+              <p><em>Aerial Perspectives</em> is a multi-page, fully responsive portfolio website originally developed for <strong>CCT360: Web Design &amp; Development</strong> at the University of Toronto Mississauga. It showcases original drone photography from China, Iceland, and Hawaii — using aerial imagery to build visual narratives of cities, coastlines, and natural landscapes.</p>
+              <p>The project had two goals: (1) demonstrate front-end proficiency with Bootstrap 5 components, responsive layouts, and interactive UI; and (2) present a coherent visual identity that keeps the photography as the hero while supporting intuitive navigation.</p>
+            </section>
+
+            <section class="mb-5">
+              <h2 class="h4 mb-3">🗺️ Information Architecture</h2>
+              <p>The site is organized in four levels. <strong>Level 1</strong> is the global navigation: Home, Portfolio, Flight Log, Resume, Contact. <strong>Level 2</strong> defines page-level sections (hero video, carousel, portfolio categories, flight-log tables, resume blocks, contact form). <strong>Level 3</strong> holds individual content units — each photograph with its title, description, and shooting metadata. <strong>Level 4</strong> covers detail and associative relationships, e.g. the home carousel linking directly into portfolio categories, and thematic bridges such as Urban ↔ City Landmarks.</p>
+            </section>
+
+            <section class="mb-5">
+              <h2 class="h4 mb-3">🎨 Visual Design</h2>
+              <p>A restrained palette — white, dark gray, and a single high-contrast accent blue — keeps the drone imagery as the focal point. A two-font sans-serif system (bold headings, light body) supports scanability and readability, with spacing tuned for WCAG-oriented legibility. Cards use soft corners, balanced padding, and minimal shadows so no element competes with the photography.</p>
+            </section>
+
+            <section class="mb-5">
+              <h2 class="h4 mb-3">🧩 Bootstrap Components</h2>
+              <ul>
+                <li><strong>Carousel</strong> — featured aerial moments on Home, with auto-slide and manual controls.</li>
+                <li><strong>Modal</strong> — enlarged photo viewing and the "About this project" dialog, dimming the background to focus attention.</li>
+                <li><strong>Dropdown</strong> — portfolio categories grouped under one nav item to keep global navigation clean.</li>
+                <li><strong>Tooltips</strong> — micro-explanations on thematic tags without cluttering the layout.</li>
+                <li><strong>Forms &amp; Tables</strong> — an accessible contact form and a structured flight-log table for comparing dates, locations, and equipment.</li>
+              </ul>
+            </section>
+
+            <section class="mb-5">
+              <h2 class="h4 mb-3">♿ Accessibility (WCAG POUR)</h2>
+              <ul>
+                <li><strong>Perceivable</strong> — meaningful <code>alt</code> text on every image; hero video muted with <code>aria-label</code>.</li>
+                <li><strong>Operable</strong> — full keyboard support: tab order, dropdowns, focus outlines, carousel and modal controls.</li>
+                <li><strong>Understandable</strong> — consistent layouts, predictable navigation, explicitly labeled form fields.</li>
+                <li><strong>Robust</strong> — semantic HTML (<code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>) plus ARIA attributes on interactive components.</li>
+              </ul>
+            </section>
+
+            <section class="mb-5">
+              <h2 class="h4 mb-3">📱 Responsive Design</h2>
+              <p>Three breakpoints adapt the experience:</p>
+              <ul>
+                <li><strong>Desktop</strong> — three-column card grid, fully expanded navigation.</li>
+                <li><strong>Tablet</strong> — grid reflows to two columns (<code>.col-md-6</code>); nav collapses into a hamburger menu.</li>
+                <li><strong>Mobile</strong> — single-column layout, full-width cards with touch-friendly targets, minimal header chrome.</li>
+              </ul>
+              <p class="mb-0">Fluid images (<code>.img-fluid</code>) and Bootstrap's grid keep hierarchy consistent without separate markup per device.</p>
+            </section>
+
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card shadow-sm sticky-top" style="top: 90px;">
+              <div class="card-body">
+                <h3 class="h5 card-title">Project Facts</h3>
+                <dl class="row mb-0 small">
+                  <dt class="col-5">Course</dt><dd class="col-7">CCT360 · UTM</dd>
+                  <dt class="col-5">Stack</dt><dd class="col-7">Bootstrap 5.3, HTML, CSS, JS</dd>
+                  <dt class="col-5">Pages</dt><dd class="col-7">Home, Portfolio, Flight Log, Resume, Contact</dd>
+                  <dt class="col-5">Locations</dt><dd class="col-7">China, Iceland, Hawaii</dd>
+                  <dt class="col-5">Author</dt><dd class="col-7">Hai Jiang</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="py-4 bg-dark text-white text-center">
+      <div class="container small">
+        &copy; <span id="year"></span> Aerial Perspectives by Hai Jiang. All photos and videos are original work.
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

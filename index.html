@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Aerial Perspectives by Hai Jiang — Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body { padding-top: 72px; }
+      .hero-video { max-height: 520px; object-fit: cover; }
+      .hero-overlay { background: rgba(0, 0, 0, 0.45); }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Aerial Perspectives</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="portfolio.html" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="galleryDropdown">
+                <li><a class="dropdown-item" href="portfolio.html#urban">Urban Nightscapes</a></li>
+                <li><a class="dropdown-item" href="portfolio.html#coast">Coastlines</a></li>
+                <li><a class="dropdown-item" href="portfolio.html#mountains">Mountains &amp; Glaciers</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="flight-log.html">Flight Log</a></li>
+            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-black text-white">
+      <div class="container-fluid p-0">
+        <div class="position-relative">
+          <video class="w-100 hero-video" autoplay muted loop playsinline>
+            <source src="media/drone-hero.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+          <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center hero-overlay">
+            <div class="container">
+              <div class="col-12 col-md-7">
+                <h1 class="display-5 fw-bold">Aerial Perspectives by Hai Jiang</h1>
+                <p class="lead">Drone photography exploring urban skylines, coastlines, and natural landscapes from above.</p>
+                <a href="portfolio.html" class="btn btn-primary btn-lg me-2">View Portfolio</a>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#aboutModal">About this project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="aboutModalLabel">About Aerial Perspectives</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>This portfolio showcases my original drone photography captured in China, Iceland, Hawaii and other locations.</p>
+            <p class="mb-0">All images and videos are shot and edited by myself, and the site is built with Bootstrap 5 as part of CCT360.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="h3 mb-4 text-center">Featured Aerial Moments</h2>
+        <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/dji_fly_20250727_115344_828_1753661695652_photo.jpg"
+         class="d-block w-100 img-fluid"
+         alt="Mountain ridge wrapped in clouds and green slopes">
+             <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2">
+             <h5>Mountains &amp; Clouds</h5>
+             <p>Mid-altitude flight tracing a green ridgeline wrapped in moving clouds.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/dji_fly_20250217_114624_667_1739910875916_photo.JPG" class="d-block w-100 img-fluid" alt="Glacier landscape from the air">
+              <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2">
+                <h5>Glacier Textures</h5>
+                <p>Glacial ice patterns captured at low altitude for detail.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/dji_fly_20251028_172752_892_1761713095491_photo.jpg" class="d-block w-100 img-fluid" alt="Glacier tongue flowing through a valley">
+              <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2">
+                <h5>Coastlines &amp; Water</h5>
+                <p>Top-down perspectives of beaches and shorelines.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <h2 class="h3 mb-3">Drone Photography Focus</h2>
+            <p class="lead">I explore how altitude, light and movement can reshape familiar places into abstract patterns and cinematic scenes.</p>
+            <p>My work blends <span class="fw-semibold">technical control</span> over exposure and flight paths with an interest in <span class="fw-semibold">storytelling</span> — documenting cities, coastlines and natural environments from a new vantage point.</p>
+            <p class="mb-0">Hover over the keywords to see the main themes I focus on:</p>
+            <div class="mt-3 d-flex gap-3 flex-wrap">
+              <span class="badge bg-primary" data-bs-toggle="tooltip" data-bs-title="Skylines, bridges, rivers at night.">Urban</span>
+              <span class="badge bg-success" data-bs-toggle="tooltip" data-bs-title="Mountains, glaciers, forests and clouds.">Landscape</span>
+              <span class="badge bg-info text-dark" data-bs-toggle="tooltip" data-bs-title="Top-down views, symmetry and patterns.">Abstract</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h3 class="h5 mb-3">Skills Overview</h3>
+            <div class="mb-2">
+              <div class="d-flex justify-content-between">
+                <span>Drone operation &amp; flight planning</span><span class="small text-muted">90%</span>
+              </div>
+              <div class="progress" role="status" aria-label="Drone operation proficiency">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="mb-2">
+              <div class="d-flex justify-content-between">
+                <span>Low-light &amp; night exposure control</span><span class="small text-muted">85%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-success" style="width: 85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>Post-processing &amp; colour grading</span><span class="small text-muted">75%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-info" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-4 bg-dark text-white text-center">
+      <div class="container small">
+        &copy; <span id="year"></span> Aerial Perspectives by Hai Jiang. All photos and videos are original work.
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.map(t => new bootstrap.Tooltip(t));
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
